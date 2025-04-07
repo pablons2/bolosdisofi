@@ -1,18 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const carousel = document.getElementById('carousel');
-    const images = [
-        'imgs/background-bolos-di-sofi.png',
-        'imgs/carousel-image-2.jpg',
-        'imgs/carousel-image-3.jpg',
-        'imgs/carousel-image-4.jpg'
-   
-    ];
-    let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const carousel = document.getElementById('carousel')
+  const images = [
+    'imgs/carrousel-1.jpg',
+    'imgs/carrousel-2.jpg',
+    'imgs/carrousel-3.jpg',
+    'imgs/carrousel-4.jpg',
+  ]
 
-    function changeImage() {
-        currentIndex = (currentIndex + 1) % images.length;
-        carousel.innerHTML = `<img src="${images[currentIndex]}" alt="Bolo" class="w-full h-[80%]" />`;
-    }
+  let currentIndex = 0
+  const img = carousel.querySelector('img')
 
-    setInterval(changeImage, 3500);
-});
+  function changeImage() {
+    img.classList.replace('opacity-100', 'opacity-0')
+
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % images.length
+      img.src = images[currentIndex]
+
+      img.classList.replace('opacity-0', 'opacity-100')
+    }, 1000)
+  }
+
+  setInterval(changeImage, 4500)
+})
