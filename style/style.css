@@ -1,0 +1,16 @@
+*{
+    margin:0;
+    padding:0;
+}
+:root{
+    --primary-color: #962042;
+    --background-color: #F3EAE1;
+    --secundary-color: #462513;
+    --terciary-color: #F1D2D1;
+    --text-primary-color: #962042;
+    --text-secundary-color: #462513;
+}
+body {
+    background: var(--background-color);
+  }
+
