@@ -58,6 +58,8 @@ fetch('https://integracao.cardapioweb.com/api/menu/company/profile?company=bolos
         const horaAgora = dataAgora.getHours() + (dataAgora.getMinutes() / 60)
         if (horaAgora < parseInt(abertura.split(':')[0])) {
           agendamento.innerHTML = `<p>Disponivel para agendamento</p>`
+        }else{
+          agendamento.innerHTML = `<p>Estamos em funcionamento!</p>`
         }}
       if (hojeHorario && hojeHorario.length > 0) {
         const [abertura, fechamento] = hojeHorario[0]
