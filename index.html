@@ -1,50 +1,251 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bolos di Sofi</title>
-  <link rel="stylesheet" href="style/style.css">
-  <link rel="icon" href="imgs/logo.png" />
+  <meta name="description" content="Bolos di Sofi - Confeitaria artesanal em Natal. Bolos personalizados, caseiros e para eventos. Delivery e encomendas.">
+  
+  <title>Bolos di Sofi | Confeitaria Artesanal Premium</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="imgs/logo.png" type="image/png">
+  
+  <!-- Preconnect Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bolos di Sofi | Confeitaria Artesanal">
+  <meta property="og:description" content="Bolos personalizados artesanais em Natal. Sabor caseiro com toque de sofisticação.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bolosdisofi.com.br">
+  <meta property="og:image" content="imgs/logo.png">
 </head>
-<body class="w-screen flex justify-center items-center min-h-screen flex-col ">
-    <header class="w-screen shadow-md">
-      <div id="carousel" class="relative w-full h-[400px] md:h-[768px] overflow-hidden">
-        <img src="imgs/carrousel-1.jpg" alt="Bolo" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1050 opacity-100" />
-      </div>
-</header>
-<div class="flex flex-col items-center px-4 py-6 text-center">
-    <div class="w-40 h-40 rounded-full bg-white border-[4px] border-[#91253e] flex items-center justify-center -mt-[6rem] z-10">
-      <img src="imgs/logo.png" alt="Logo Bolos di Sofi" class="w-40 h-auto" />
-    </div>
-    <div id="horario-funcionamento" class="mt-4 text-sm text-[#91253e] font-semibold"></div>
-    <div id="agendamento" class="mt-1 text-sm text-yellow-600 font-semibold"></div>
-    <p class="text-xs text-[#91253e] mt-1">🚚 Delivery e encomendas!</p>
-  </div>
+<body>
+  <!-- Skip Link -->
+  <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
 
-<main class="w-[90%] flex flex-col gap-4 px-2 items-center justify-center flex-col">
-    <a href="https://app.oxemenu.com.br/bolos_di_sofi" target="_blank" class=" w-full bg-[#f3cfd2] items-center flex justify-center text-[#91253e] py-3 rounded-md font-semibold shadow transition duration-300 hover:bg-[#fdf1f2] hover:shadow-md ">Cardápio Online</a>
-    <a href="https://wa.me/5555829883593?text=vim%20pelo%20seu%20site%20www.bolosdesofi.com.br%2C%20gostaria%20de%20fazer%20um%20pedido%20personalizado!" class=" w-full bg-white border items-center flex justify-center border-[#91253e] text-[#91253e] py-3 rounded-md font-semibold shadow transition duration-300 hover:bg-[#fdf1f2] hover:shadow-md">
-        Personalize seu Pedido
+  <!-- Navegação -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo" aria-label="Bolos di Sofi - Início">
+        <img src="imgs/logo.png" alt="Logo Bolos di Sofi" width="120" height="40">
       </a>
-        <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5582988359383" target="_blank" class=" w-full bg-white border border-[#91253e] text-[#91253e] py-3 rounded-md font-semibold shadow transition duration-300 hover:bg-[#fdf1f2] hover:shadow-md flex items-center justify-center gap-2">
-          <svg class="w-5 h-5 text-[#91253e]" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M20 15.5a17.7 17.7 0 01-4.5-.6 1.2 1.2 0 00-1 .2l-2.6 1.8a15.5 15.5 0 01-7.2-7.2L7 8.7a1.2 1.2 0 00.2-1 17.7 17.7 0 01-.6-4.5A1.2 1.2 0 005.3 2H4A2 2 0 002 4c0 10.5 8.5 19 19 19a2 2 0 002-2v-1.3a1.2 1.2 0 00-1.2-1.2z" />
-          </svg>
-          Fale Conosco
+      <ul class="navbar-menu" role="menubar">
+        <li role="none"><a href="#hero" role="menuitem">Início</a></li>
+        <li role="none"><a href="#galeria" role="menuitem">Galeria</a></li>
+        <li role="none"><a href="#depoimentos" role="menuitem">Depoimentos</a></li>
+        <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero" role="banner">
+    <div class="hero-image-container">
+      <img src="imgs/carrousel-1.jpg" alt="Bolo personalizado artesanal" class="hero-image" fetchpriority="high" width="1920" height="1080">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="status-bar" id="status-bar" role="status" aria-live="polite">
+      <div class="status-indicator">
+        <span class="status-dot" id="status-dot"></span>
+        <span class="status-text" id="status-text">Carregando...</span>
+      </div>
+      <p class="hours-text" id="hours-text"></p>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-logo">
+        <img src="imgs/logo.png" alt="Bolos di Sofi" width="140" height="140">
+      </div>
+      
+      <h1 class="hero-headline">Bolos que abraçam<br>o coração</h1>
+      <p class="hero-subheadline">Arte em cada fatia. Sabor caseiro com toque de sofisticação.</p>
+      
+      <div class="hero-ctas">
+        <a href="https://app.oxemenu.com.br/bolos_di_sofi" class="btn btn-primary" target="_blank" rel="noopener"><i class="bi bi-journal-text" aria-hidden="true"></i> Cardápio Online</a>
+        <a href="https://wa.me/5555829883593?text=vim%20pelo%20seu%20site" class="btn btn-whatsapp">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i>
+          Personalize seu Pedido
         </a>
-        <footer class="text-center w-screen text-[#91253e] font-semibold text-sm px-4 mt-6 pb-6">
-            <p>Celebre a vida e crie memórias</p>
-            <p>com sabores que te abraçam ❤️</p>
-          </footer>
-    <section class="mt-2 flex flex-col  px-2 items-center justify-center flex-col w-screen">
-        <iframe src="https://www.instagram.com/bolosdisofi/embed" height="450" class="w-[90%]" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main id="main-content">
+    
+    <!-- Prova Social -->
+    <section class="social-proof" id="depoimentos">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Depoimentos</span>
+          <h2 class="section-title">O que nossos clientes dizem</h2>
+          <p class="section-subtitle">Mais de 500 bolos entregues com amor</p>
+        </header>
+
+        <div class="stats-row">
+          <div class="stat-item"><span class="stat-number" data-count="500">500+</span><span class="stat-label">Bolos Entregues</span></div>
+          <div class="stat-item"><span class="stat-number">4.9</span><span class="stat-stars">⭐⭐⭐⭐⭐</span><span class="stat-label">Avaliação Média</span></div>
+          <div class="stat-item"><span class="stat-number" data-count="3">3+</span><span class="stat-label">Anos de Experiência</span></div>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card reveal">
+            <div class="testimonial-header"><div class="testimonial-avatar">AC</div><div class="testimonial-meta"><span class="testimonial-name">Ana Carolina</span><span class="testimonial-stars">⭐⭐⭐⭐⭐</span></div></div>
+            <blockquote class="testimonial-text">"O bolo da minha filha ficou perfeito! Todos elogiaram!"</blockquote>
+            <span class="testimonial-product">Bolo Unicórnio</span>
+          </article>
+          <article class="testimonial-card reveal delay-100">
+            <div class="testimonial-header"><div class="testimonial-avatar">MF</div><div class="testimonial-meta"><span class="testimonial-name">Maria Fernanda</span><span class="testimonial-stars">⭐⭐⭐⭐⭐</span></div></div>
+            <blockquote class="testimonial-text">"Sabor único, massa fofinha e recheio delicioso!"</blockquote>
+            <span class="testimonial-product">Bolo de Chocolate</span>
+          </article>
+          <article class="testimonial-card reveal delay-200">
+            <div class="testimonial-header"><div class="testimonial-avatar">RS</div><div class="testimonial-meta"><span class="testimonial-name">Roberto Silva</span><span class="testimonial-stars">⭐⭐⭐⭐⭐</span></div></div>
+            <blockquote class="testimonial-text">"Atendimento excelente, entrega pontual. Já são 3 pedidos!"</blockquote>
+            <span class="testimonial-product">Bolo Corporativo</span>
+          </article>
+        </div>
+
+        <div class="section-cta">
+          <a href="https://wa.me/5555829883593" class="btn btn-whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Quero fazer meu pedido</a>
+        </div>
+      </div>
     </section>
-</main>
 
+    <!-- Galeria -->
+    <section class="gallery" id="galeria">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Galeria</span>
+          <h2 class="section-title">Nossos Bolos</h2>
+          <p class="section-subtitle">Cada bolo é uma obra de arte feita para você</p>
+        </header>
 
-</div>
-<script src="script/script.js"></script>
-<script src="https://cdn.tailwindcss.com"></script>
+        <div class="gallery-grid">
+          <figure class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="imgs/carrousel-2.jpg" alt="Bolo infantil" loading="lazy" width="400" height="400">
+              <div class="gallery-overlay"><span class="gallery-category">Infantil</span><button class="gallery-cta" type="button">Personalizar</button></div>
+            </div>
+            <figcaption class="gallery-caption"><span class="gallery-name">Bolo Temático</span><span class="gallery-price">A partir de R$ 120</span></figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="imgs/carrousel-3.jpg" alt="Bolo floral" loading="lazy" width="400" height="400">
+              <div class="gallery-overlay"><span class="gallery-category">Feminino</span><button class="gallery-cta" type="button">Personalizar</button></div>
+            </div>
+            <figcaption class="gallery-caption"><span class="gallery-name">Bolo Floral</span><span class="gallery-price">A partir de R$ 140</span></figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <div class="gallery-image-wrapper">
+              <img src="imgs/carrousel-4.jpg" alt="Bolo evento" loading="lazy" width="400" height="400">
+              <div class="gallery-overlay"><span class="gallery-category">Eventos</span><button class="gallery-cta" type="button">Solicitar Orçamento</button></div>
+            </div>
+            <figcaption class="gallery-caption"><span class="gallery-name">Bolo de Evento</span><span class="gallery-price">Consultar</span></figcaption>
+          </figure>
+        </div>
+
+        <div class="section-cta">
+          <a href="https://wa.me/5555829883593" class="btn btn-whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Quero um bolo personalizado</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Como Funciona -->
+    <section class="how-it-works" id="como-funciona">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Processo</span>
+          <h2 class="section-title">Como Funciona</h2>
+          <p class="section-subtitle">Em poucos passos, seu bolo estará pronto</p>
+        </header>
+
+        <div class="steps-container">
+          <div class="step-card reveal"><div class="step-number">1</div><div class="step-icon"><i class="bi bi-cake2" aria-hidden="true"></i></div><h3 class="step-title">Escolha seu Bolo</h3><p class="step-description">Navegue na galeria e escolha o modelo ideal.</p></div>
+          <div class="step-card reveal delay-100"><div class="step-number">2</div><div class="step-icon"><i class="bi bi-stars" aria-hidden="true"></i></div><h3 class="step-title">Personalize</h3><p class="step-description">Escolha sabores e detalhes pelo WhatsApp.</p></div>
+          <div class="step-card reveal delay-200"><div class="step-number">3</div><div class="step-icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></div><h3 class="step-title">Receba Orçamento</h3><p class="step-description">Resposta rápida com valor e prazo.</p></div>
+          <div class="step-card reveal delay-300"><div class="step-number">4</div><div class="step-icon"><i class="bi bi-truck" aria-hidden="true"></i></div><h3 class="step-title">Receba ou Retire</h3><p class="step-description">Delivery em Natal ou retire na loja.</p></div>
+        </div>
+
+        <div class="section-cta">
+          <a href="https://wa.me/5555829883593" class="btn btn-whatsapp btn-large"><i class="bi bi-whatsapp" aria-hidden="true"></i> Começar meu pedido</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section class="differentials" id="diferenciais">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Por que escolher</span>
+          <h2 class="section-title">Nossos Diferenciais</h2>
+        </header>
+
+        <div class="differentials-grid">
+          <div class="differential-card reveal"><div class="differential-icon"><i class="bi bi-heart-fill" aria-hidden="true"></i></div><h3 class="differential-title">Produção Artesanal</h3><p class="differential-description">Feitos com amor, um a um.</p></div>
+          <div class="differential-card reveal delay-100"><div class="differential-icon"><i class="bi bi-flower1" aria-hidden="true"></i></div><h3 class="differential-title">Ingredientes Premium</h3><p class="differential-description">Qualidade sempre.</p></div>
+          <div class="differential-card reveal delay-200"><div class="differential-icon"><i class="bi bi-palette" aria-hidden="true"></i></div><h3 class="differential-title">Personalização</h3><p class="differential-description">Do seu jeito.</p></div>
+          <div class="differential-card reveal"><div class="differential-icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></div><h3 class="differential-title">Atendimento</h3><p class="differential-description">Rápido pelo WhatsApp.</p></div>
+          <div class="differential-card reveal delay-100"><div class="differential-icon"><i class="bi bi-truck" aria-hidden="true"></i></div><h3 class="differential-title">Entrega Rápida</h3><p class="differential-description">Delivery em Natal.</p></div>
+          <div class="differential-card reveal delay-200"><div class="differential-icon"><i class="bi bi-balloon-heart" aria-hidden="true"></i></div><h3 class="differential-title">Eventos</h3><p class="differential-description">Casamentos e festas.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Instagram -->
+    <section class="instagram-section" id="contato">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Siga-nos</span>
+          <h2 class="section-title">@bolosdisofi</h2>
+          <p class="section-subtitle">Acompanhe nosso dia a dia</p>
+        </header>
+        <div class="instagram-wrapper">
+          <iframe src="https://www.instagram.com/bolosdisofi/embed" class="instagram-embed" title="Instagram Bolos di Sofi" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <img src="imgs/logo.png" alt="Bolos di Sofi" class="footer-logo" width="100" height="40">
+        <p class="footer-slogan">Celebre a vida e crie memórias<br>com sabores que te abraçam ❤️</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/bolosdisofi" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="bi bi-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="https://wa.me/5555829883593" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+        <p class="footer-copy">© 2024 Bolos di Sofi. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Flutuante -->
+  <a href="https://wa.me/5555829883593" class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp" target="_blank">
+    <i class="bi bi-whatsapp whatsapp-icon" aria-hidden="true"></i>
+    <span class="whatsapp-label">Fale Conosco</span>
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/main.js" defer></script>
+  <script src="js/business-status.js" defer></script>
 </body>
 </html>

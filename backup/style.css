@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    padding:0;
+}
+:root{
+    --primary-color: #962042;
+    --background-color: #F3EAE1;
+    --secundary-color: #462513;
+    --terciary-color: #F1D2D1;
+    --text-primary-color: #962042;
+    --text-secundary-color: #462513;
+}
+body {
+    background: var(--background-color);
+  }
+
+  #carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
