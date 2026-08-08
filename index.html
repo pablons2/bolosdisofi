@@ -2,250 +2,770 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Bolos di Sofi - Confeitaria artesanal em Maceió. Bolos personalizados, caseiros e para eventos. Delivery e encomendas.">
-  
-  <title>Bolos di Sofi | Confeitaria Artesanal Premium</title>
-  
-  <!-- Favicon -->
+
+  <title>Bolos di Sofi | Confeitaria Artesanal</title>
+
   <link rel="icon" href="imgs/logo.png" type="image/png">
-  
-  <!-- Preconnect Fonts -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Bootstrap Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/design-system.css">
-  <link rel="stylesheet" href="css/utilities.css">
-  <link rel="stylesheet" href="css/main.css">
-  
-  <!-- Open Graph -->
+
   <meta property="og:title" content="Bolos di Sofi | Confeitaria Artesanal">
   <meta property="og:description" content="Bolos personalizados artesanais em Maceió. Sabor caseiro com toque de sofisticação.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bolosdisofi.com.br">
   <meta property="og:image" content="imgs/logo.png">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-cream: #FFF8F1;
+      --color-cream-dark: #F5EDE4;
+      --color-chocolate: #5B3A29;
+      --color-chocolate-light: #7A5543;
+      --color-gold: #C8A46B;
+      --color-whatsapp: #25D366;
+      --color-whatsapp-dark: #128C7E;
+      --color-white: #FFFFFF;
+      --color-success: #10B981;
+      --color-warning: #F59E0B;
+
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --shadow-sm: 0 2px 8px rgba(91, 58, 41, 0.08);
+      --shadow-md: 0 4px 16px rgba(91, 58, 41, 0.12);
+      --shadow-lg: 0 8px 32px rgba(91, 58, 41, 0.15);
+      --shadow-logo: 0 4px 24px rgba(91, 58, 41, 0.12);
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-cream);
+      color: var(--color-chocolate);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: max(24px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom));
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--color-chocolate);
+      color: var(--color-white);
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 1001;
+      border-radius: 0 0 12px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-gold);
+      outline-offset: 2px;
+    }
+
+    .hub {
+      width: 100%;
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    /* Logo */
+    .hub-logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--color-white);
+      box-shadow: var(--shadow-logo);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .hub-logo img {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+    /* Brand */
+    .hub-brand {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .hub-brand h1 {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-chocolate);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .hub-brand p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-chocolate-light);
+      line-height: 1.5;
+    }
+
+    /* Status Pill */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      padding: 8px 16px;
+      border-radius: 9999px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 4px;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #9CA3AF;
+      transition: background 300ms var(--ease-out);
+      flex-shrink: 0;
+    }
+
+    .status-dot.open {
+      background: var(--color-success);
+      animation: pulse 2s infinite;
+    }
+
+    .status-dot.closed {
+      background: var(--color-warning);
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .status-text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-chocolate);
+      white-space: nowrap;
+    }
+
+    .hours-text {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-chocolate-light);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    /* Carousel */
+    .hub-carousel {
+      width: 100%;
+      height: 140px;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 28px;
+      background: var(--color-cream-dark);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
+    }
+
+    .carousel-track {
+      position: absolute;
+      inset: 0;
+    }
+
+    .carousel-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 800ms var(--ease-out);
+    }
+
+    .carousel-slide.active {
+      opacity: 1;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .carousel-slide::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(91,58,41,0) 60%, rgba(91,58,41,0.15) 100%);
+    }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 300ms var(--ease-out);
+    }
+
+    .carousel-dot.active {
+      background: var(--color-white);
+      width: 18px;
+      border-radius: 9999px;
+    }
+
+    /* Link Buttons */
+    .hub-links {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 56px;
+      border: none;
+      border-radius: 14px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 200ms var(--ease-out);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .link-btn:active {
+      transform: scale(0.97);
+    }
+
+    .link-btn svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .link-btn-primary {
+      background: var(--color-chocolate);
+      color: var(--color-cream);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .link-btn-primary:hover {
+      background: #6B4A38;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .link-btn-whatsapp {
+      background: var(--color-whatsapp);
+      color: var(--color-white);
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+    }
+
+    .link-btn-whatsapp:hover {
+      background: var(--color-whatsapp-dark);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .link-btn-outline {
+      background: transparent;
+      border: 2px solid var(--color-chocolate);
+      color: var(--color-chocolate);
+      height: 52px;
+    }
+
+    .link-btn-outline:hover {
+      background: rgba(91, 58, 41, 0.06);
+    }
+
+    /* Slogan */
+    .hub-slogan {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-style: italic;
+      color: var(--color-chocolate-light);
+      text-align: center;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Social Row */
+    .hub-social {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all 200ms var(--ease-out);
+      -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
+    }
+
+    .social-btn:active {
+      transform: scale(0.92);
+    }
+
+    .social-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .social-btn-instagram {
+      background: var(--color-chocolate);
+      color: var(--color-cream);
+    }
+
+    .social-btn-instagram:hover {
+      background: #6B4A38;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .social-btn-share {
+      background: transparent;
+      border: 2px solid var(--color-chocolate);
+      color: var(--color-chocolate);
+    }
+
+    .social-btn-share:hover {
+      background: rgba(91, 58, 41, 0.06);
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--color-chocolate);
+      color: var(--color-cream);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 500;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transition: all 400ms var(--ease-spring);
+      z-index: 2000;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Desktop adjustments */
+    @media (min-width: 768px) {
+      .hub-logo {
+        width: 112px;
+        height: 112px;
+        margin-bottom: 24px;
+      }
+
+      .hub-logo img {
+        width: 72px;
+        height: 72px;
+      }
+
+      .hub-brand h1 {
+        font-size: 28px;
+      }
+
+      .hub-brand p {
+        font-size: 15px;
+      }
+
+      .hub-carousel {
+        height: 180px;
+      }
+
+      .link-btn {
+        height: 60px;
+        font-size: 17px;
+      }
+
+      .link-btn-outline {
+        height: 56px;
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .carousel-slide {
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Skip Link -->
   <a href="#main-content" class="skip-link">Pular para conteúdo principal</a>
 
-  <!-- Navegação -->
-  <nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
-    <div class="navbar-container">
-      <a href="#" class="navbar-logo" aria-label="Bolos di Sofi - Início">
-        <img src="imgs/logo.png" alt="Logo Bolos di Sofi" width="120" height="40">
+  <main class="hub" id="main-content" role="main">
+    <div class="hub-logo">
+      <img src="imgs/logo.png" alt="Bolos di Sofi" width="64" height="64">
+    </div>
+
+    <div class="hub-brand">
+      <h1>Bolos di Sofi</h1>
+      <p>Confeitaria Artesanal</p>
+    </div>
+
+    <div class="status-pill" role="status" aria-live="polite">
+      <span class="status-dot" id="status-dot"></span>
+      <span class="status-text" id="status-text">Carregando...</span>
+    </div>
+    <p class="hours-text" id="hours-text"></p>
+
+    <div class="hub-carousel" id="carousel" aria-label="Galeria de bolos" role="region">
+      <div class="carousel-track" id="carousel-track">
+        <div class="carousel-slide active"><img src="imgs/carrousel-1.jpg" alt="Bolo personalizado artesanal" loading="eager" width="360" height="140"></div>
+        <div class="carousel-slide"><img src="imgs/carrousel-2.jpg" alt="Bolo infantil" loading="lazy" width="360" height="140"></div>
+        <div class="carousel-slide"><img src="imgs/carrousel-3.jpg" alt="Bolo floral" loading="lazy" width="360" height="140"></div>
+        <div class="carousel-slide"><img src="imgs/carrousel-4.jpg" alt="Bolo para eventos" loading="lazy" width="360" height="140"></div>
+      </div>
+      <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Selecionar imagem"></div>
+    </div>
+
+    <nav class="hub-links" aria-label="Links principais">
+      <a href="https://app.oxemenu.com.br/bolos_di_sofi" class="link-btn link-btn-primary" target="_blank" rel="noopener" aria-label="Ver cardápio online">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        Cardápio Online
       </a>
-      <ul class="navbar-menu" role="menubar">
-        <li role="none"><a href="#hero" role="menuitem">Início</a></li>
-        <li role="none"><a href="#galeria" role="menuitem">Galeria</a></li>
-        <li role="none"><a href="#depoimentos" role="menuitem">Depoimentos</a></li>
-        <li role="none"><a href="#contato" role="menuitem">Contato</a></li>
-      </ul>
+
+      <a href="https://wa.me/5582988359383?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido%20personalizado." class="link-btn link-btn-whatsapp" target="_blank" rel="noopener" aria-label="Personalizar pedido no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+        </svg>
+        Personalizar Pedido
+      </a>
+
+      <a href="https://wa.me/5582988359383?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20a%20Bolos%20di%20Sofi." class="link-btn link-btn-outline" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        Fale Conosco
+      </a>
+    </nav>
+
+    <p class="hub-slogan">Celebre a vida e crie memórias<br>com sabores que te abraçam ❤️</p>
+
+    <div class="hub-social">
+      <a href="https://instagram.com/bolosdisofi" class="social-btn social-btn-instagram" target="_blank" rel="noopener" aria-label="Instagram Bolos di Sofi">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </a>
+      <button class="social-btn social-btn-share" id="share-btn" aria-label="Compartilhar página">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="18" cy="5" r="3"/>
+          <circle cx="6" cy="12" r="3"/>
+          <circle cx="18" cy="19" r="3"/>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+        </svg>
+      </button>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero" id="hero" role="banner">
-    <div class="hero-image-container">
-      <img src="imgs/carrousel-1.jpg" alt="Bolo personalizado artesanal" class="hero-image" fetchpriority="high" width="1920" height="1080">
-      <div class="hero-overlay"></div>
-    </div>
-
-    <div class="status-bar" id="status-bar" role="status" aria-live="polite">
-      <div class="status-indicator">
-        <span class="status-dot" id="status-dot"></span>
-        <span class="status-text" id="status-text">Carregando...</span>
-      </div>
-      <p class="hours-text" id="hours-text"></p>
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-logo">
-        <img src="imgs/logo.png" alt="Bolos di Sofi" width="140" height="140">
-      </div>
-      
-      <h1 class="hero-headline">Bolos que abraçam<br>o coração</h1>
-      <p class="hero-subheadline">Arte em cada fatia. Sabor caseiro com toque de sofisticação.</p>
-      
-      <div class="hero-ctas">
-        <a href="https://app.oxemenu.com.br/bolos_di_sofi" class="btn btn-primary" target="_blank" rel="noopener"><i class="bi bi-journal-text" aria-hidden="true"></i> Cardápio Online</a>
-        <a href="https://wa.me/5582988359383?text=vim%20pelo%20seu%20site" class="btn btn-whatsapp">
-          <i class="bi bi-whatsapp" aria-hidden="true"></i>
-          Personalize seu Pedido
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Conteúdo Principal -->
-  <main id="main-content">
-    
-    <!-- Prova Social -->
-    <section class="social-proof" id="depoimentos">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Depoimentos</span>
-          <h2 class="section-title">O que nossos clientes dizem</h2>
-          <p class="section-subtitle">Mais de 500 bolos entregues com amor</p>
-        </header>
-
-        <div class="stats-row">
-          <div class="stat-item"><span class="stat-number" data-count="500">500+</span><span class="stat-label">Bolos Entregues</span></div>
-          <div class="stat-item"><span class="stat-number">4.9</span><span class="stat-stars">⭐⭐⭐⭐⭐</span><span class="stat-label">Avaliação Média</span></div>
-          <div class="stat-item"><span class="stat-number" data-count="3">3+</span><span class="stat-label">Anos de Experiência</span></div>
-        </div>
-
-        <div class="testimonials-grid">
-          <article class="testimonial-card reveal">
-            <div class="testimonial-header"><div class="testimonial-avatar">AC</div><div class="testimonial-meta"><span class="testimonial-name">Ana Carolina</span><span class="testimonial-stars">⭐⭐⭐⭐⭐</span></div></div>
-            <blockquote class="testimonial-text">"O bolo da minha filha ficou perfeito! Todos elogiaram!"</blockquote>
-            <span class="testimonial-product">Bolo Unicórnio</span>
-          </article>
-          <article class="testimonial-card reveal delay-100">
-            <div class="testimonial-header"><div class="testimonial-avatar">MF</div><div class="testimonial-meta"><span class="testimonial-name">Maria Fernanda</span><span class="testimonial-stars">⭐⭐⭐⭐⭐</span></div></div>
-            <blockquote class="testimonial-text">"Sabor único, massa fofinha e recheio delicioso!"</blockquote>
-            <span class="testimonial-product">Bolo de Chocolate</span>
-          </article>
-          <article class="testimonial-card reveal delay-200">
-            <div class="testimonial-header"><div class="testimonial-avatar">RS</div><div class="testimonial-meta"><span class="testimonial-name">Roberto Silva</span><span class="testimonial-stars">⭐⭐⭐⭐⭐</span></div></div>
-            <blockquote class="testimonial-text">"Atendimento excelente, entrega pontual. Já são 3 pedidos!"</blockquote>
-            <span class="testimonial-product">Bolo Corporativo</span>
-          </article>
-        </div>
-
-        <div class="section-cta">
-          <a href="https://wa.me/5555829883593" class="btn btn-whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Quero fazer meu pedido</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Galeria -->
-    <section class="gallery" id="galeria">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Galeria</span>
-          <h2 class="section-title">Nossos Bolos</h2>
-          <p class="section-subtitle">Cada bolo é uma obra de arte feita para você</p>
-        </header>
-
-        <div class="gallery-grid">
-          <figure class="gallery-item">
-            <div class="gallery-image-wrapper">
-              <img src="imgs/carrousel-2.jpg" alt="Bolo infantil" loading="lazy" width="400" height="400">
-              <div class="gallery-overlay"><span class="gallery-category">Infantil</span><button class="gallery-cta" type="button">Personalizar</button></div>
-            </div>
-            <figcaption class="gallery-caption"><span class="gallery-name">Bolo Temático</span><span class="gallery-price">A partir de R$ 120</span></figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <div class="gallery-image-wrapper">
-              <img src="imgs/carrousel-3.jpg" alt="Bolo floral" loading="lazy" width="400" height="400">
-              <div class="gallery-overlay"><span class="gallery-category">Feminino</span><button class="gallery-cta" type="button">Personalizar</button></div>
-            </div>
-            <figcaption class="gallery-caption"><span class="gallery-name">Bolo Floral</span><span class="gallery-price">A partir de R$ 140</span></figcaption>
-          </figure>
-          <figure class="gallery-item">
-            <div class="gallery-image-wrapper">
-              <img src="imgs/carrousel-4.jpg" alt="Bolo evento" loading="lazy" width="400" height="400">
-              <div class="gallery-overlay"><span class="gallery-category">Eventos</span><button class="gallery-cta" type="button">Solicitar Orçamento</button></div>
-            </div>
-            <figcaption class="gallery-caption"><span class="gallery-name">Bolo de Evento</span><span class="gallery-price">Consultar</span></figcaption>
-          </figure>
-        </div>
-
-        <div class="section-cta">
-          <a href="https://wa.me/5555829883593" class="btn btn-whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i> Quero um bolo personalizado</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Como Funciona -->
-    <section class="how-it-works" id="como-funciona">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Processo</span>
-          <h2 class="section-title">Como Funciona</h2>
-          <p class="section-subtitle">Em poucos passos, seu bolo estará pronto</p>
-        </header>
-
-        <div class="steps-container">
-          <div class="step-card reveal"><div class="step-number">1</div><div class="step-icon"><i class="bi bi-cake2" aria-hidden="true"></i></div><h3 class="step-title">Escolha seu Bolo</h3><p class="step-description">Navegue na galeria e escolha o modelo ideal.</p></div>
-          <div class="step-card reveal delay-100"><div class="step-number">2</div><div class="step-icon"><i class="bi bi-stars" aria-hidden="true"></i></div><h3 class="step-title">Personalize</h3><p class="step-description">Escolha sabores e detalhes pelo WhatsApp.</p></div>
-          <div class="step-card reveal delay-200"><div class="step-number">3</div><div class="step-icon"><i class="bi bi-chat-dots" aria-hidden="true"></i></div><h3 class="step-title">Receba Orçamento</h3><p class="step-description">Resposta rápida com valor e prazo.</p></div>
-          <div class="step-card reveal delay-300"><div class="step-number">4</div><div class="step-icon"><i class="bi bi-truck" aria-hidden="true"></i></div><h3 class="step-title">Receba ou Retire</h3><p class="step-description">Delivery em Natal ou retire na loja.</p></div>
-        </div>
-
-        <div class="section-cta">
-          <a href="https://wa.me/5555829883593" class="btn btn-whatsapp btn-large"><i class="bi bi-whatsapp" aria-hidden="true"></i> Começar meu pedido</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Diferenciais -->
-    <section class="differentials" id="diferenciais">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Por que escolher</span>
-          <h2 class="section-title">Nossos Diferenciais</h2>
-        </header>
-
-        <div class="differentials-grid">
-          <div class="differential-card reveal"><div class="differential-icon"><i class="bi bi-heart-fill" aria-hidden="true"></i></div><h3 class="differential-title">Produção Artesanal</h3><p class="differential-description">Feitos com amor, um a um.</p></div>
-          <div class="differential-card reveal delay-100"><div class="differential-icon"><i class="bi bi-flower1" aria-hidden="true"></i></div><h3 class="differential-title">Ingredientes Premium</h3><p class="differential-description">Qualidade sempre.</p></div>
-          <div class="differential-card reveal delay-200"><div class="differential-icon"><i class="bi bi-palette" aria-hidden="true"></i></div><h3 class="differential-title">Personalização</h3><p class="differential-description">Do seu jeito.</p></div>
-          <div class="differential-card reveal"><div class="differential-icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></div><h3 class="differential-title">Atendimento</h3><p class="differential-description">Rápido pelo WhatsApp.</p></div>
-          <div class="differential-card reveal delay-100"><div class="differential-icon"><i class="bi bi-truck" aria-hidden="true"></i></div><h3 class="differential-title">Entrega Rápida</h3><p class="differential-description">Delivery em Natal.</p></div>
-          <div class="differential-card reveal delay-200"><div class="differential-icon"><i class="bi bi-balloon-heart" aria-hidden="true"></i></div><h3 class="differential-title">Eventos</h3><p class="differential-description">Casamentos e festas.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Instagram -->
-    <section class="instagram-section" id="contato">
-      <div class="container">
-        <header class="section-header">
-          <span class="section-tag">Siga-nos</span>
-          <h2 class="section-title">@bolosdisofi</h2>
-          <p class="section-subtitle">Acompanhe nosso dia a dia</p>
-        </header>
-        <div class="instagram-wrapper">
-          <iframe src="https://www.instagram.com/bolosdisofi/embed" class="instagram-embed" title="Instagram Bolos di Sofi" loading="lazy"></iframe>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-content">
-        <img src="imgs/logo.png" alt="Bolos di Sofi" class="footer-logo" width="100" height="40">
-        <p class="footer-slogan">Celebre a vida e crie memórias<br>com sabores que te abraçam ❤️</p>
-        <div class="footer-social">
-          <a href="https://instagram.com/bolosdisofi" target="_blank" rel="noopener" aria-label="Instagram">
-            <i class="bi bi-instagram" aria-hidden="true"></i>
-          </a>
-          <a href="https://wa.me/5582988359383   " target="_blank" rel="noopener" aria-label="WhatsApp">
-            <i class="bi bi-whatsapp" aria-hidden="true"></i>
-          </a>
-        </div>
-        <p class="footer-copy">© 2024 Bolos di Sofi. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
+  <div class="toast" id="toast" role="alert" aria-live="assertive"></div>
 
-  <!-- WhatsApp Flutuante -->
-  <a href="https://wa.me/5582988359383  " class="whatsapp-float" aria-label="Fale conosco pelo WhatsApp" target="_blank">
-    <i class="bi bi-whatsapp whatsapp-icon" aria-hidden="true"></i>
-    <span class="whatsapp-label">Fale Conosco</span>
-  </a>
+  <script>
+    (function () {
+      'use strict';
 
-  <!-- Scripts -->
-  <script src="js/main.js" defer></script>
-  <script src="js/business-status.js" defer></script>
+      // ============================================
+      // BUSINESS STATUS
+      // ============================================
+      var API_URL = 'https://integracao.cardapioweb.com/api/menu/company/profile?company=bolos_di_sofi&hostname=app.oxemenu.com.br';
+      var DIAS_SEMANA = {
+        sunday: 'Domingo', monday: 'Segunda-feira', tuesday: 'Terça-feira',
+        wednesday: 'Quarta-feira', thursday: 'Quinta-feira',
+        friday: 'Sexta-feira', saturday: 'Sábado'
+      };
+
+      function initBusinessStatus() {
+        var statusBar = document.getElementById('status-bar');
+        fetch(API_URL)
+          .then(function (res) {
+            if (!res.ok) throw new Error('API returned ' + res.status);
+            return res.json();
+          })
+          .then(function (data) {
+            var hours = data && data.business_hours;
+            if (!hours) { showOffline(); return; }
+            var today = new Date().toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+            var todayHours = hours[today];
+            var isOpen = checkIsOpen(todayHours);
+            renderStatus(isOpen, todayHours, today, hours);
+          })
+          .catch(function () { showOffline(); });
+      }
+
+      function checkIsOpen(hours) {
+        if (!hours || hours.length === 0) return false;
+        var now = new Date();
+        var currentHour = now.getHours() + (now.getMinutes() / 60);
+        var open = parseInt(hours[0][0].split(':')[0]);
+        var close = parseInt(hours[0][1].split(':')[0]);
+        return currentHour >= open && currentHour < close;
+      }
+
+      function renderStatus(isOpen, hours, today, allHours) {
+        var dot = document.getElementById('status-dot');
+        var text = document.getElementById('status-text');
+        var hoursText = document.getElementById('hours-text');
+
+        dot.className = 'status-dot ' + (isOpen ? 'open' : 'closed');
+        text.textContent = isOpen ? 'Estamos atendendo' : 'Agendamento disponível';
+
+        if (hoursText) {
+          if (hours && hours.length > 0) {
+            hoursText.textContent = 'Hoje: ' + hours[0][0] + ' às ' + hours[0][1];
+          } else {
+            var next = findNextOpenDay(today, allHours);
+            if (next) {
+              hoursText.textContent = 'Abriremos ' + next.day + ' às ' + next.time;
+            }
+          }
+        }
+      }
+
+      function findNextOpenDay(currentDay, businessHours) {
+        var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+        var idx = days.indexOf(currentDay);
+        for (var i = 1; i <= 7; i++) {
+          var index = (idx + i) % 7;
+          var day = days[index];
+          if (businessHours[day] && businessHours[day].length > 0) {
+            return { day: DIAS_SEMANA[day], time: businessHours[day][0][0] };
+          }
+        }
+        return null;
+      }
+
+      function showOffline() {
+        var dot = document.getElementById('status-dot');
+        var text = document.getElementById('status-text');
+        var hoursText = document.getElementById('hours-text');
+        if (dot) dot.style.background = '#9CA3AF';
+        if (text) text.textContent = 'Verifique no WhatsApp';
+        if (hoursText) hoursText.textContent = 'Horário indisponível';
+      }
+
+      // ============================================
+      // WEB SHARE API + CLIPBOARD FALLBACK
+      // ============================================
+      function initShare() {
+        var btn = document.getElementById('share-btn');
+        if (!btn) return;
+
+        btn.addEventListener('click', function () {
+          var shareData = {
+            title: 'Bolos di Sofi | Confeitaria Artesanal',
+            text: 'Bolos personalizados artesanais em Maceió. Sabor caseiro com toque de sofisticação.',
+            url: window.location.href
+          };
+
+          if (navigator.share) {
+            navigator.share(shareData).catch(function () {});
+          } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(window.location.href).then(function () {
+              showToast('Link copiado!');
+            }).catch(function () {
+              showToast('Não foi possível copiar');
+            });
+          } else {
+            showToast('Compartilhe: ' + window.location.href);
+          }
+        });
+      }
+
+      function showToast(message) {
+        var toast = document.getElementById('toast');
+        if (!toast) return;
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(function () {
+          toast.classList.remove('show');
+        }, 2500);
+      }
+
+      // ============================================
+      // CAROUSEL
+      // ============================================
+      function initCarousel() {
+        var carousel = document.getElementById('carousel');
+        if (!carousel) return;
+
+        var track = document.getElementById('carousel-track');
+        var dotsContainer = document.getElementById('carousel-dots');
+        var slides = track ? track.querySelectorAll('.carousel-slide') : [];
+        if (slides.length === 0) return;
+
+        var current = 0;
+        var timer = null;
+        var INTERVAL = 4000;
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Build dots
+        slides.forEach(function (_, i) {
+          var dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'Imagem ' + (i + 1));
+          dot.addEventListener('click', function () {
+            goTo(i);
+            resetTimer();
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        var dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+        function goTo(index) {
+          slides[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          current = (index + slides.length) % slides.length;
+          slides[current].classList.add('active');
+          dots[current].classList.add('active');
+        }
+
+        function next() {
+          goTo(current + 1);
+        }
+
+        function startTimer() {
+          if (reducedMotion) return;
+          timer = setInterval(next, INTERVAL);
+        }
+
+        function resetTimer() {
+          if (timer) clearInterval(timer);
+          startTimer();
+        }
+
+        // Touch swipe
+        var touchStartX = 0;
+        var touchEndX = 0;
+
+        carousel.addEventListener('touchstart', function (e) {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function (e) {
+          touchEndX = e.changedTouches[0].screenX;
+          var diff = touchStartX - touchEndX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0) { goTo(current + 1); } else { goTo(current - 1); }
+            resetTimer();
+          }
+        }, { passive: true });
+
+        // Pause on hover (desktop)
+        carousel.addEventListener('mouseenter', function () {
+          if (timer) clearInterval(timer);
+        });
+
+        carousel.addEventListener('mouseleave', function () {
+          startTimer();
+        });
+
+        startTimer();
+      }
+
+      // ============================================
+      // INIT
+      // ============================================
+      initBusinessStatus();
+      initShare();
+      initCarousel();
+    })();
+  </script>
 </body>
 </html>
